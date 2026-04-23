@@ -1,0 +1,77 @@
+{
+    "champions": [
+        {
+            "name": "Viktor",
+            "subtitle": "The Herald of the Arcane",
+            "role": "Mage",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viktor_0.jpg"
+        },
+
+        {
+            "name": "Shen",
+            "subtitle": "The Eye of Twilight",
+            "role": "Tank",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Shen_0.jpg"
+        },
+
+        {
+            "name": "Vayne",
+            "subtitle": "The Night Hunter",
+            "role": "Marksman",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Vayne_0.jpg"
+        },
+
+        {
+            "name": "Blitzcrank",
+            "subtitle": "The Great Steam Golem",
+            "role": "Support",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Blitzcrank_0.jpg"
+        },
+
+        {
+            "name": "Warwick",
+            "subtitle": "The Uncaged Wrath of Zaun",
+            "role": "Fighter",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Warwick_0.jpg"
+        },
+
+        {
+            "name": "Pyke",
+            "subtitle": "The Bloodharbor Ripper",
+            "role": "Assassin",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pyke_0.jpg"
+        }
+    ],
+
+    "skins": [
+        {
+            "name": "Creator Viktor",
+            "skinline": "Battlecast",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viktor_3.jpg"
+        },
+
+        {
+            "name": "Ashen Guardian Shen",
+            "skinline": "Ashen Knight",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Shen_49.jpg"
+        },
+
+        {
+            "name": "PROJECT: Vayne",
+            "skinline": "PROJECT",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Vayne_11.jpg"
+        },
+
+        {
+            "name": "Space Groove Blitz & Crank",
+            "skinline": "Space Groove",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Blitzcrank_29.jpg"
+        },
+
+        {
+            "name": "Soul Fighter Pyke",
+            "skinline": "Soul Fighter",
+            "splash_link": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pyke_53.jpg"
+        }
+    ]
+}
