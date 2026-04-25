@@ -10,17 +10,21 @@
     <title>About - League of Legends</title>
 
     <!-- Linking jQuery to the file to utilize in main.js and for plugins -->
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- Link to Cycle2 provided by an example within zyBooks lesson -->
     <script src="https://malsup.github.io/jquery.cycle2.js"></script>
+
+    <!-- Main JavaScript file that will run the page's core functionality and API calls / jQuery -->
+    <script src="main.js" async></script>
 </head>
 
 <body>
     <header>
+        <h1>League of Legends - Download Now!</h1>
         <nav>
             <ul>
-                <li><a href="#play">Play Now</a></li>
+                <li><a href="#hero">Play Now</a></li>
                 <li><a href="#champions">Champion Roster</a></li>
                 <li><a href="#skins">Skins</a></li>
                 <li><a href="#find">Player Search</a></li>
@@ -29,27 +33,64 @@
     </header>
 
     <main>
-        <section id="play">
-
+        <section id="hero">
+            <h2>Lorem ipsum</h2>
+            <p></p>
+            <a href="#">Play Now!</a>
         </section>
 
         <section id="champions">
-
-            <!-- jQuery Cycle2 container, will be dynamically updated via JavaScript -->
-            <div class="cycle-slideshow" 
-                data-cycle-fx="scrollHorz"
-                data-cycle-speed="200"
-                data-cycle-timeout="2000">
+            <h2>Battle a Roster of Over 170 Champions!</h2>
+            <p>Since our release in 2010, we've continued to release additional champions for our players to master. Each champion fulfills a unique fantasy within the world of Runeterra, 
+                with many players finding the one champion that simply clicks with them. Below are examples of each role you can play in a game of League of Legends.
+            </p>
+            
+            <!-- jQuery Cycle2 container, will be dynamically updated via JavaScript from Postman -->
+            <div>
             </div>
         </section>
 
         <section id="skins">
-
+            <!-- jQuery slick container, will be dynamically updated via JavaScript from Postman -->
+            <div>
+            </div>
         </section>
 
         <section id="find">
+            <h2>Search for Allies on Summoner's Rift</h2>
+            <p>Whether you're joining the fight with veterans or looking for the highest leveled player, use our tool to search for players on your server! Your search will default to the region 
+                you've selected upon site entry. You can search other regions' playerbase records or a player's Riot ID by changing the region code below.
+            </p>
 
+            <form action="">
+                <div>
+                    <label for="playerSearch">Enter a username:</label>
+                    <input type="text" id="playerSearch">
+                </div>
+                
+                <input type="submit">
+            </form>
+
+            <!-- Player data will be dynamically added upon submitting a request to the Riot API -->
+            <div id="player-content">
+            </div>
         </section>
+
+        <!-- A pop-up that triggers upon page open if the client does not have a localStorage value holding their region preference -->
+        <div id="region-popup">
+            <p>Please select a region:</p>
+            <form action="">
+                <select name="region" id="region">
+                    <option value="NA1">North America</option>
+                    <option value="OCE">Oceania</option>
+                    <option value="RU">Russia</option>
+                    <option value="EUW1">Europe West</option>
+                    <option value="EUN1">Europe Nordic & East</option>
+                    <option value="KR">Korea</option>
+                </select>
+                <input type="submit" value="Confirm">
+            </form>
+        </div>
     </main>
 
     <footer>
