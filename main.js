@@ -36,9 +36,43 @@ document.addEventListener("DOMContentLoaded", async function(){
 function setRegion(e){
     e.preventDefault();
     let region = document.querySelector("#region").value;
-    alert(region);
     localStorage.setItem("region", region);
     document.querySelector("#region-popup").classList.add("hidden");
+}
+
+//Function for making call to Riot Games API
+async function getPlayer(e){
+    //The Riot Games API uses a mix of server/platform codes and routing region codes to request responses. 
+    //I created a map to pair the values together so that I can pull the routing value from the region selected in the popup dialog.
+    const routings = {
+        //Routings for Americas
+        "na1": "americas",
+        "la1": "americas",
+        "la2": "americas",
+        "br1": "americas",
+
+        //Routings for Europe
+        "euw1": "europe",
+        "eun1": "europe",
+        "ru": "europe",
+
+        //Routings for Asia
+        "kr": "asia",
+        "jp1": "asia"
+    };
+
+    const apiKey = 'RGAPI-347c3cce-9af8-45dc-bc85-7f3cdcff06de';
+    let name = document.querySelector("#region-popup select").value;
+    let searchName = name.replaceAll(" ", "%20");
+    let tagline = localStorage.getItem("region");
+    let platform = routings[tagline];
+    
+    if(document.getElementById("taglineSearch").value > 0){
+        tagline = document.getElementById("taglineSearch").value;
+    }
+
+    let accountUrl = `https://${platform}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${searchName}/${tagline}?api_key=${apiKey}`;    
+
 }
 
 //Setting event listeners
