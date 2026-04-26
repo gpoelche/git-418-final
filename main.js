@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", async function(){
     for(let champ of data.champions){
         let temp = `<div class='champCard'>`;
         temp += `<img src='${champ.splash_link}' alt='An image of the champion ${champ.name}'><h3>${champ.name}</h3><p>${champ.subtitle}</p><p>${champ.role}</p></div>`;
-        document.querySelector("#champions div").innerHTML += temp;
+        document.querySelector("#champions #championCycle").innerHTML += temp;
     }
-
+    
     //Adding skins from the fetch request into the DOM as cards that will cycle via slick
     for(let skin of data.skins){
         let temp = `<div class='skinCard'>`;
@@ -61,10 +61,12 @@ async function getPlayer(e){
         "jp1": "asia"
     };
 
-    const apiKey = 'RGAPI-347c3cce-9af8-45dc-bc85-7f3cdcff06de';
-    let name = document.querySelector("#playerSearch").value;
-
+    const apiKey = 'RGAPI-cdebbedc-2594-418c-81a0-a3465c3c00e4';
+    let playerContent = document.querySelector("#player-content");
+    playerContent.innerHTML = "";
+    
     //String is formatted for the api call url. Spaces in usernames are replaced with "%20" within the API call url according to the documentation.
+    let name = document.querySelector("#playerSearch").value;
     let searchName = name.trim().replaceAll(" ", "%20");
     let region = localStorage.getItem("region");
     let platform = routings[region];
@@ -80,21 +82,71 @@ async function getPlayer(e){
     //URL that is sent to the Riot Games API with the Account-V1 function
     let accountUrl = `https://${platform}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${searchName}/${tagline}?api_key=${apiKey}`;    
 
-    let response = await fetch(accountUrl);
-    if(response.status == 200){
+    //Try block that catches bad responses from the user request. Adds the error message to an error span.
+    try{
+        let response = await fetch(accountUrl);    
+        document.querySelector("#searchForm span").classList.add("hidden");
+
+        if(!response.ok){
+            //Case for is a user does not exist within the search parameters. 
+            if(response.status == 404){
+                throw "Player not found. Please check the search terms and try again!";
+            }
+
+            //Blanket error statement.
+            else{
+                throw "There was an error processing your request. Please try again later.";
+            }
+        }
+        
         let acctInfo = await response.json();
         let puuid = acctInfo.puuid;
         //URL that is sent to the Riot Games API with the Summoner-V4 function
         let puuidUrl = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${apiKey}`;
-
         let userRes = await fetch(puuidUrl);
         let userInfo = await userRes.json();
-        console.log(userInfo);
+
+        //Getting player ranked information, for solo queue only
+        let rankUrl = `https://${region}.api.riotgames.com/lol/league/v4/entries/by-puuid/${puuid}?api_key=${apiKey}`;
+        let rankRes = await fetch(rankUrl);
+        let rankInfo = await rankRes.json();
+
+        //Getting champion mastery info for the player with the puuid value on Champion Mastery-V4
+        let masteryUrl = `https://${region}.api.riotgames.com/lol/champion-mastery/v4/scores/by-puuid/${puuid}?api_key=${apiKey}`;
+        let masteryRes = await fetch(masteryUrl);
+        let masteryInfo = await masteryRes.json();
+        console.log(rankInfo);
+        
+        let temp = `<img src='https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/${userInfo.profileIconId}.jpg'>
+        <h3>${searchName.replaceAll("%20", " ")}</h3>
+        <p>Level ${userInfo.summonerLevel}</p>
+        <p>Champion Mastery: Level ${masteryInfo}</p>`;
+        console.log(rankInfo);
+
+        if(rankInfo.length == 0){
+            temp += `<p>Unranked</p>`;
+        }
+
+        else{
+            if(rankInfo[0].tier == "MASTER" || rankInfo[0].tier == "GRANDMASTER" || rankInfo[0].tier == "CHALLENGER"){
+                temp += `<p>${rankInfo[0].tier}</p>`;
+            }
+
+            else{
+                temp += `<p>${rankInfo[0].tier} ${rankInfo[0].rank}</p>`;
+            }
+
+            temp += `<p>${rankInfo[0].leaguePoints}LP</p><p>${rankInfo[0].wins}W ${rankInfo[0].losses}L</p>`
+        }
+        
+        playerContent.innerHTML = temp;
     }
 
-    else{
-        alert("BAD RESPONSE: TRY AGAIN");
+    catch(err){
+        document.querySelector("#searchForm span").classList.remove("hidden");
+        document.querySelector("#searchForm span").innerHTML = err;
     }
+
 }
 
 //Setting event listeners
@@ -105,4 +157,3 @@ document.getElementById("regionSelectButton").addEventListener("click", function
 
 document.querySelector("#region-popup form").addEventListener("submit", setRegion);
 document.querySelector("#find form").addEventListener("submit", getPlayer);
-

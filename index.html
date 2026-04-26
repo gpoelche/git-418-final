@@ -16,7 +16,7 @@
     <script src="https://malsup.github.io/jquery.cycle2.js"></script>
 
     <!-- Main JavaScript file that will run the page's core functionality and API calls / jQuery -->
-    <script src="main.js" async></script>
+    <script src="main.js" defer></script>
 </head>
 
 <body>
@@ -46,7 +46,10 @@
             </p>
 
             <!-- jQuery Cycle2 container, will be dynamically updated via JavaScript from Postman -->
-            <div>
+            <div id="championCycle" class="cycle-slideshow"
+            data-cycle-fx="scrollHorz"
+            data-cycle-speed="3000"
+            data-cycle-slides=".champCard">
             </div>
         </section>
 
@@ -80,6 +83,7 @@
                 </div>
 
                 <button id="regionSelectButton">Change Region</button>
+                <span class="error hidden">TEST</span>
                 
                 <input type="submit">
             </form>
