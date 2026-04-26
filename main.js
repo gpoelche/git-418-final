@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", async function(){
     
     let response = await fetch(baseData);
     let data = await response.json();
-    console.log(data);
 
     //Adding champions from the fetch request into the DOM as cards that will cycle via Cycle2
     for(let champ of data.champions){
@@ -42,6 +41,7 @@ function setRegion(e){
 
 //Function for making call to Riot Games API
 async function getPlayer(e){
+    e.preventDefault();
     //The Riot Games API uses a mix of server/platform codes and routing region codes to request responses. 
     //I created a map to pair the values together so that I can pull the routing value from the region selected in the popup dialog.
     const routings = {
@@ -62,18 +62,47 @@ async function getPlayer(e){
     };
 
     const apiKey = 'RGAPI-347c3cce-9af8-45dc-bc85-7f3cdcff06de';
-    let name = document.querySelector("#region-popup select").value;
-    let searchName = name.replaceAll(" ", "%20");
-    let tagline = localStorage.getItem("region");
-    let platform = routings[tagline];
-    
-    if(document.getElementById("taglineSearch").value > 0){
+    let name = document.querySelector("#playerSearch").value;
+
+    //String is formatted for the api call url. Spaces in usernames are replaced with "%20" within the API call url according to the documentation.
+    let searchName = name.trim().replaceAll(" ", "%20");
+    let region = localStorage.getItem("region");
+    let platform = routings[region];
+
+    //Taglines were introduced at one point to let players change this value and help differentiate users. Those with older accounts are assigned with the region code the account existed on.
+    let tagline = region;
+
+    //Changes the search parameters if a user wants to check for a player with a specific tagline value
+    if(document.getElementById("taglineSearch").value.length > 0){
         tagline = document.getElementById("taglineSearch").value;
     }
 
+    //URL that is sent to the Riot Games API with the Account-V1 function
     let accountUrl = `https://${platform}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${searchName}/${tagline}?api_key=${apiKey}`;    
 
+    let response = await fetch(accountUrl);
+    if(response.status == 200){
+        let acctInfo = await response.json();
+        let puuid = acctInfo.puuid;
+        //URL that is sent to the Riot Games API with the Summoner-V4 function
+        let puuidUrl = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${apiKey}`;
+
+        let userRes = await fetch(puuidUrl);
+        let userInfo = await userRes.json();
+        console.log(userInfo);
+    }
+
+    else{
+        alert("BAD RESPONSE: TRY AGAIN");
+    }
 }
 
 //Setting event listeners
+document.getElementById("regionSelectButton").addEventListener("click", function(e){
+    e.preventDefault();
+    document.getElementById("region-popup").classList.remove("hidden");
+});
+
 document.querySelector("#region-popup form").addEventListener("submit", setRegion);
+document.querySelector("#find form").addEventListener("submit", getPlayer);
+
