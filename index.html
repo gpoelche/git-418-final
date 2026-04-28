@@ -7,6 +7,8 @@
 
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css">
+    <!-- Stylesheet needed for slick to work properly -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <title>About - League of Legends</title>
 
     <!-- Linking jQuery to the file to utilize in main.js and for plugins -->
@@ -15,13 +17,16 @@
     <!-- Link to Cycle2 provided by an example within zyBooks lesson -->
     <script src="https://malsup.github.io/jquery.cycle2.js"></script>
 
+    <!-- Link to slick, a carousel plugin I plan to use for the skins section of this webpage -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
     <!-- Main JavaScript file that will run the page's core functionality and API calls / jQuery -->
     <script src="main.js" defer></script>
 </head>
 
 <body>
     <header>
-        <h1>League of Legends - Download Now!</h1>
+        <h1 class="hidden">League of Legends - Download Now!</h1>
         <nav>
             <ul>
                 <li><a href="#hero">Play Now</a></li>
@@ -50,6 +55,7 @@
             data-cycle-fx="scrollHorz"
             data-cycle-speed="3000"
             data-cycle-slides=".champCard">
+            <!-- <div id="championCycle"> -->
             </div>
         </section>
 
@@ -61,7 +67,7 @@
             </p>
 
             <!-- jQuery slick container, will be dynamically updated via JavaScript from Postman -->
-            <div>
+            <div id="skinSlick">
             </div>
         </section>
 

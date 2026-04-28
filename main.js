@@ -22,13 +22,28 @@ document.addEventListener("DOMContentLoaded", async function(){
         temp += `<img src='${champ.splash_link}' alt='An image of the champion ${champ.name}'><h3>${champ.name}</h3><p>${champ.subtitle}</p><p>${champ.role}</p></div>`;
         document.querySelector("#champions #championCycle").innerHTML += temp;
     }
-    
+
+    $("#championCycle").cycle({
+        speed: 1000,
+        slides: "> .champCard"
+    });
+
     //Adding skins from the fetch request into the DOM as cards that will cycle via slick
     for(let skin of data.skins){
         let temp = `<div class='skinCard'>`;
-        temp += `<img src='${skin.splash_link}' alt='An image of the skin ${skin.name}'><h3>${skin.name}</h3><p>${skin.skinline}</p></div>`;
+        temp += `<img src='${skin.splash_link}' alt='An image of the skin ${skin.name}'><div><h3>${skin.name}</h3><p>Skinline: ${skin.skinline}</p></div></div>`;
         document.querySelector("#skins div").innerHTML += temp;
     }
+
+    $(document).ready(function(){
+        $("#skinSlick").slick({
+            slidesToShow: 1,
+            autoplay: true,
+            arrows: true,
+            prevArrow: '<button class="slick-prev">&larr;</button>',
+            nextArrow: '<button class="slick-next">&rarr;</button>'
+        });
+    });
 });
 
 // Form functions
@@ -61,7 +76,7 @@ async function getPlayer(e){
         "jp1": "asia"
     };
 
-    const apiKey = 'RGAPI-cdebbedc-2594-418c-81a0-a3465c3c00e4';
+    const apiKey = 'RGAPI-9f37a283-abeb-4d3e-893a-1e902ccc049e';
     let playerContent = document.querySelector("#player-content");
     playerContent.innerHTML = "";
     
