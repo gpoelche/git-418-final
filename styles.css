@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@200..800&display=swap');
 
 :root{
-    --heading-font: "Instrument Serif", serif;
+    --heading-font: "Manrope", sans-serif;
     --heading-weight: 800;
 
-    --body-font: "Manrope", sans-serif;
+    --body-font: "Instrument Serif", serif;
     --body-weight: 400;
+    --body-padding: 40px;
 
     --line-height: 1.5;
 
     /* COLORS */
-    --black: black;
-    --white: white;
+    --black: rgb(19, 19, 22);
+    --white: rgba(247, 247, 248, 1);
+    --error: rgba(245, 11, 55, 1);
 
     --card-bg-color: rgba(0, 0, 0, 0.40);
 }
@@ -71,13 +73,21 @@ table {
     display: none;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: var(--body-font);
     font-weight: var(--body-weight);
     line-height: var(--line-height);
     max-width: 1200px;
+    margin: 0 auto;
 }
 
+main section{
+    margin-bottom: 25px;
+}
 h1, h2, h3, h4{
     font-family: var(--heading-font);
     font-weight: var(--heading-weight);
@@ -87,6 +97,36 @@ header a{
     text-decoration: none;
     color: var(--black);
     text-transform: uppercase;
+}
+
+/* HEADER STYLES */
+header{
+    background-color: var(--black);
+    padding: 20px 0px;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+nav a{
+    color: var(--white);
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+
+/* HERO STYLES */
+#hero{
+    width: 100%;
+    padding: 225px 0px;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(https://wiki.leagueoflegends.com/en-us/images/Annie_Blitzcrank_Garen_Jinx_Master_Yi_Jinx_WR_Promo_01.jpg?1cf67);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: var(--white);
 }
 
 /* GALLERY CARD STYLES */
@@ -138,4 +178,5 @@ header a{
     color: var(--white);
     width: 100%;
     padding: 10px 15px;
+    text-transform: uppercase;
 }
