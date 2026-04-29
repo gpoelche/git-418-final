@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@200..800&display=swap');
 
 :root{
+    --heading-2-size: 2.25rem;
     --heading-font: "Manrope", sans-serif;
     --heading-weight: 800;
 
@@ -75,7 +76,8 @@ table {
 
 /* GLOBAL STYLES */
 .hidden{
-    display: none;
+    /* Not sure why but my pop-up wouldn't properly hide after being styled if I didn't include the !important here. Need to brush up on that and refresh myself on why. */
+    display: none !important;
 }
 
 .error{
@@ -106,6 +108,10 @@ p, h2, h3, form{
     padding-left: 30px;
 }
 
+p{
+    margin-bottom: 30px;
+}
+
 h1, h2, h3, h4{
     font-family: var(--heading-font);
     font-weight: var(--heading-weight);
@@ -113,6 +119,7 @@ h1, h2, h3, h4{
 
 h2{
     margin-bottom: 20px;
+    font-size: var(--heading-2-size);
 }
 
 header a{
@@ -288,6 +295,50 @@ input[type^=submit], #find button{
     margin-left: 30px;
     border: 8px solid var(--black);
 }
+
+/* POP-UP STYLES */
+#region-popup{
+    background-color: var(--white);
+    border: 5px solid var(--black);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: auto;
+    text-align: center;
+
+    /* I did some research on how to make this pop-up center on the page before getting this to work */
+    /* I originally tried to use position: sticky; but I got it mixed up with fixed. This was frustrating to realize :) */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+#region-popup h2, #region-popup form{
+    padding-left: 0px;
+}
+
+#region-popup form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 40%;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+/* TO-DO : Finish implementing BG blur behind the popup */
+/* .popup-bg{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--white);
+    z-index: 1000;
+} */
 
 /* FOOTER STYLES */
 footer{
