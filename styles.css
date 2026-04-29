@@ -4,7 +4,12 @@
     --heading-font: "Manrope", sans-serif;
     --heading-weight: 800;
 
+    --hero-heading: 3rem;
+
+    --nav-size: 1.5rem;
+
     --body-font: "Instrument Serif", serif;
+    --body-size: 1.5rem;
     --body-weight: 400;
     --body-padding: 40px;
 
@@ -73,6 +78,10 @@ table {
     display: none;
 }
 
+.error{
+    color: var(--error);
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -85,12 +94,25 @@ body{
     margin: 0 auto;
 }
 
+main{
+    font-size: var(--body-size);
+}
+
 main section{
     margin-bottom: 25px;
 }
+
+p, h2, h3, form{
+    padding-left: 30px;
+}
+
 h1, h2, h3, h4{
     font-family: var(--heading-font);
     font-weight: var(--heading-weight);
+}
+
+h2{
+    margin-bottom: 20px;
 }
 
 header a{
@@ -113,6 +135,7 @@ nav ul{
 
 nav a{
     color: var(--white);
+    font-size: var(--nav-size);
 }
 
 nav a:hover{
@@ -125,8 +148,29 @@ nav a:hover{
     padding: 225px 0px;
     background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(https://wiki.leagueoflegends.com/en-us/images/Annie_Blitzcrank_Garen_Jinx_Master_Yi_Jinx_WR_Promo_01.jpg?1cf67);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 118%;
     color: var(--white);
+}
+
+#hero h2{
+    font-size: var(--hero-heading);
+}
+
+#hero p{
+    max-width: 60ch;
+    margin-bottom: 60px;
+}
+
+#hero a{
+    text-decoration: none;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 15px;    
+    border: 1px solid var(--white);
+    padding: 20px 60px;
+    margin-left: 30px;
+    text-transform: uppercase;
+    font-weight: bold;    
 }
 
 /* GALLERY CARD STYLES */
@@ -138,7 +182,18 @@ nav a:hover{
     width: 100%;
 }
 
+/* SKIN SECTION STYLES */
+#skins{
+    padding-top: 50px;
+}
+
+#skins:not(#skinSlick){
+    background-color: var(--black);
+    color: var(--white);
+}
+
 #skinSlick{
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
     position: relative;
@@ -148,6 +203,9 @@ nav a:hover{
     padding: 10px 15px;
     border-radius: 25px;
     z-index: 3;
+    background-color: var(--card-bg-color);
+    color: var(--white);
+    border: 1px solid var(--white);
 }
 
 #skinSlick .slick-prev{
@@ -179,4 +237,63 @@ nav a:hover{
     width: 100%;
     padding: 10px 15px;
     text-transform: uppercase;
+}
+
+/* PLAYER SEARCH STYLES */
+#searchForm{
+    margin-top: 20px;
+}
+
+#inputs{
+    display: flex;
+    flex-direction: row;
+}
+
+input[type^=text], select{
+    font-family: var(--body-font);
+    font-size: var(--body-font);
+    border-radius: 8px;
+}
+
+#inputs div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#inputs div:last-of-type{
+    margin-left: 10px;
+}
+
+input[type^=submit], #find button{
+    font-size: var(--body-size);
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+#player-content{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+}
+
+#player-content img{
+    width: 200px;
+}
+
+#baseInfo img{
+    border-radius: 50%;
+    margin-left: 30px;
+    border: 8px solid var(--black);
+}
+
+/* FOOTER STYLES */
+footer{
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 50px;
+    font-size: var(--body-size);
 }

@@ -76,7 +76,7 @@ async function getPlayer(e){
         "jp1": "asia"
     };
 
-    const apiKey = 'RGAPI-9f37a283-abeb-4d3e-893a-1e902ccc049e';
+    const apiKey = 'RGAPI-60dfceaa-a505-461b-a642-924bb1f32637';
     let playerContent = document.querySelector("#player-content");
     playerContent.innerHTML = "";
     
@@ -130,28 +130,32 @@ async function getPlayer(e){
         let masteryUrl = `https://${region}.api.riotgames.com/lol/champion-mastery/v4/scores/by-puuid/${puuid}?api_key=${apiKey}`;
         let masteryRes = await fetch(masteryUrl);
         let masteryInfo = await masteryRes.json();
-        console.log(rankInfo);
         
-        let temp = `<img src='https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/${userInfo.profileIconId}.jpg'>
+        //Begins to build the player data that is returned in the player search section, loaded into two separate divs to format the section.
+        let temp = `<div id="baseInfo"><img src='https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/${userInfo.profileIconId}.jpg'>
         <h3>${searchName.replaceAll("%20", " ")}</h3>
-        <p>Level ${userInfo.summonerLevel}</p>
-        <p>Champion Mastery: Level ${masteryInfo}</p>`;
-        console.log(rankInfo);
+        <p>Player Level ${userInfo.summonerLevel}</p>
+        <p>Mastery Level ${masteryInfo}</p></div><div id="rankedInfo">`;
 
+        // Images for the ranks in this section are from another version of DataDragon called CommunityDragon. It's maintained by game community members and a bit easier to use interface-wise
+        //SVGs are loaded from there into the player section based on the string value of the tier returned in API call
         if(rankInfo.length == 0){
+            temp += `<img src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/unranked.svg">`;
             temp += `<p>Unranked</p>`;
         }
 
         else{
             if(rankInfo[0].tier == "MASTER" || rankInfo[0].tier == "GRANDMASTER" || rankInfo[0].tier == "CHALLENGER"){
-                temp += `<p>${rankInfo[0].tier}</p>`;
+                temp += `<img src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/${String(rankInfo[0].tier).toLowerCase()}.svg">`;
+                temp += `<p>${rankInfo[0].tier} ${rankInfo[0].leaguePoints}LP</p>`;
             }
 
             else{
-                temp += `<p>${rankInfo[0].tier} ${rankInfo[0].rank}</p>`;
+                temp += `<img src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/${String(rankInfo[0].tier).toLowerCase()}.svg">`;
+                temp += `<p>${rankInfo[0].tier} ${rankInfo[0].rank} ${rankInfo[0].leaguePoints}LP</p>`;
             }
 
-            temp += `<p>${rankInfo[0].leaguePoints}LP</p><p>${rankInfo[0].wins}W ${rankInfo[0].losses}L</p>`
+            temp += `<p>${rankInfo[0].wins}W ${rankInfo[0].losses}L</p></div>`;
         }
         
         playerContent.innerHTML = temp;

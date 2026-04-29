@@ -40,7 +40,9 @@
     <main>
         <section id="hero">
             <h2>Join the Fight for Free Today!</h2>
-            <p>Are you ready to prove yourself on Summoner's Rift? Sign up today and become a member of one of the largest online free-to-play games of all time.</p>
+            <p>Are you ready to prove yourself on Summoner's Rift? Sign up today and become a member of one of the largest online free-to-play games of all time. 
+                New updates with new playable characters, game modes and balance changes arrive biweekly to keep a fresh, refined gameplay experience.
+            </p>
             <a href="#">Play Now</a>
         </section>
 
@@ -78,20 +80,25 @@
             </p>
 
             <form  id="searchForm" action="">
-                <div>
-                    <label for="playerSearch">Enter a username:</label>
-                    <input type="text" name="playerSearch" id="playerSearch">
+                <div id="inputs">
+                    <div>
+                        <label for="playerSearch">Summoner Name:</label>
+                        <input type="text" name="playerSearch" id="playerSearch">
+                    </div>
+
+                    <div>
+                        <label for="taglineSearch">Tagline:</label>
+                        <input type="text" name="taglineSearch" id="taglineSearch">
+                    </div>
                 </div>
 
-                <div>
-                    <label for="taglineSearch">[Optional] Enter a tagline:</label>
-                    <input type="text" name="taglineSearch" id="taglineSearch">
-                </div>
+                <div id="findButtons">
+                        <button id="regionSelectButton">Change Region</button>
+                        <input type="submit" value="Find Player">
+                    </div>
 
-                <button id="regionSelectButton">Change Region</button>
-                <span class="error hidden">TEST</span>
-                
-                <input type="submit">
+                <!-- Span that will display errors to the form when an issue occurs -->
+                <span class="error hidden"></span>
             </form>
 
             <!-- Player data will be dynamically added upon submitting a request to the Riot API -->
