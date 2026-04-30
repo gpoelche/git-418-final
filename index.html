@@ -1,197 +1,203 @@
 <!-- George Poelcher III - 4/22/26 - GIT 418 - Prof. Bailey -->
 <!DOCTYPE html>
-<head>
-    <meta name="author" content="George Poelcher III">
-    <meta name="description" content="Learn more about the hit online multiplayer game League of Legends.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+    <head>
+        <meta name="author" content="George Poelcher III">
+        <meta name="description" content="Learn more about the hit online multiplayer game League of Legends.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="utf-8">
+        <meta charset="utf-8">
 
-    <link rel="stylesheet" href="styles.css">
-    <!-- Stylesheet needed for slick to work properly -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <!-- Stylesheet needeed for jQuery UI to work properly -->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="styles.css">
+        <!-- Stylesheet needed for slick to work properly -->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <!-- Stylesheet needeed for jQuery UI to work properly -->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.css">
 
-    <title>About - League of Legends</title>
+        <title>About - League of Legends</title>
 
-    <!-- Linking jQuery to the file to utilize in main.js and for plugins -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <!-- Linking jQuery to the file to utilize in main.js and for plugins -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- Link to jQuery UI from the cdn link in zyBooks-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+        <!-- Link to jQuery UI from the cdn link in zyBooks-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
-    <!-- Link to slick, a carousel plugin I plan to use for the skins section of this webpage -->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <!-- Link to slick, a carousel plugin I plan to use for the skins section of this webpage -->
+        <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <!-- Main JavaScript file that will run the page's core functionality and API calls / jQuery -->
-    <script src="main.js" defer></script>
-</head>
+        <!-- Main JavaScript file that will run the page's core functionality and API calls / jQuery -->
+        <script src="main.js" defer></script>
+    </head>
 
-<body>
-    <header>
-        <h1 class="hidden">League of Legends - Download Now!</h1>
-        <nav>
-            <ul>
-                <li><a href="#hero">Play Now</a></li>
-                <li><a href="#champions">Champion Roster</a></li>
-                <li><a href="#skins">Skins</a></li>
-                <li><a href="#find">Player Search</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="hero">
-            <h2>Join the Fight for Free Today!</h2>
-            <p>Are you ready to prove yourself on Summoner's Rift? Sign up today and become a member of one of the largest online free-to-play games of all time. 
-                New updates with new playable characters, game modes and balance changes arrive biweekly to keep a fresh, refined gameplay experience.
-            </p>
-            <a href="#">Play Now</a>
-        </section>
-
-        <section id="modes">
-            <h2>Battle Opponents on Various Maps</h2>
-            <p>Engage in combat across several maps and rotating game modes every time you login to League of Legends. Classic maps and game modes are a permanent part of the player experience in Runeterra, often receiving 
-                seasonal overhauls and updates to further enhance the consistent gameplay our players love. Other maps and game modes are part of a rotating selection that we change throughout various points of the year to 
-                keep players engaged. New maps and gamemodes are also introduced as limited-time experiences alongside major events we put on for our players! Below are a few of the maps and gamemodes you can expect to see 
-                on day one.
-            </p>
-
-            <div id="tabs">
+    <body>
+        <header>
+            <h1 class="hidden">League of Legends - Download Now!</h1>
+            <nav>
                 <ul>
-                    <li><a href="#summoners">Summoner's Rift</a></li>
-                    <li><a href="#howling">Howling Abyss</a></li>
-                    <li><a href="#rings">Rings of Wrath</a></li>
+                    <li><a href="#hero">Play</a></li>
+                    <li><a href="#modes">Maps</a></li>
+                    <li><a href="#champions">Roster</a></li>
+                    <li><a href="#skins">Skins</a></li>
+                    <li><a href="#find">Find Friends</a></li>
                 </ul>
+            </nav>
+        </header>
 
-                <section id="summoners">
+        <main>
+            <section id="hero">
+                <h2>Join the Fight for Free Today!</h2>
+                <p>Are you ready to prove yourself on Summoner's Rift? Sign up today and become a member of one of the largest online free-to-play games of all time. 
+                    New updates with new playable characters, game modes and balance changes arrive biweekly to keep a fresh, refined gameplay experience.
+                </p>
+                <a href="#">Play Now!</a>
+            </section>
+
+            <section id="modes">
+                <h2>Battle Opponents on Various Maps</h2>
+                <p>Engage in combat across several maps and rotating game modes every time you login to League of Legends. Classic maps and game modes are a permanent part of the player experience in Runeterra, often receiving 
+                    seasonal overhauls and updates to further enhance the consistent gameplay our players love. Other maps and game modes are part of a rotating selection that we change throughout various points of the year to 
+                    keep players engaged. New maps and gamemodes are also introduced as limited-time experiences alongside major events we put on for our players! Below are a few of the maps and gamemodes you can expect to see 
+                    on day one.
+                </p>
+
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#summoners">Summoner's Rift</a></li>
+                        <li><a href="#howling">Howling Abyss</a></li>
+                        <li><a href="#rings">Rings of Wrath</a></li>
+                    </ul>
+
+                    <section id="summoners">
+                        <div>
+                            <h3>Summoner's Rift (Draft Pick)</h3>
+                            <p>The classic League of Legends experience. Battle on a map with three major lanes, conecting its two sides by a river splitting the jungle. Players queue in teams of five against another team in a 
+                                fight to destroy the enemy team's base. Various jungle monsters and objectives lie across the map offering benefits to those who smite them. All ranked modes as well as Clash, an elimination-style 
+                                tournament mode, are played on this map.
+                            </p>
+                        </div>
+
+                    <img src="https://cdnb.artstation.com/p/assets/images/images/019/044/805/medium/oliver-chipping-sru-estshot.jpg?1561756520" alt="An image of the map Summoner's Rift for the classic mode of League of Legends">
+                </section>
+
+                <section id="howling">
                     <div>
-                        <h3>Summoner's Rift (Draft Pick)</h3>
-                        <p>The classic League of Legends experience. Battle on a map with three major lanes, conecting its two sides by a river splitting the jungle. Players queue in teams of five against another team in a 
-                            fight to destroy the enemy team's base. Various jungle monsters and objectives lie across the map offering benefits to those who smite them. All ranked modes as well as Clash, an elimination-style 
-                            tournament mode, are played on this map.
+                        <h3>Howling Abyss (ARAM)</h3>
+                        <p>Looking to unwind and play a fun mode with your friends or alone? Howling Abyss is a map featuring one lane with the pure intent of fighting and moving down one lane to destroy the enemy team's 
+                            base. All players are offered a pool of randomly-selected champions to play in each game, acting as a mode dedicated entirely to rapid decision making and chaos. The gamemode Mayhem, a seasonal 
+                            mode providing more chaos with new items and augments to change your playstyle, is also played on Howling Abyss.
                         </p>
                     </div>
 
-                <img src="" alt="An image of the map Summoner's Rift for the classic mode of League of Legends">
-            </section>
+                    <img src="https://cdnb.artstation.com/p/assets/images/images/032/819/101/large/thabiso-mhlaba-howling-abyss.jpg?1607553807" alt="An image of the map Howling Abyss for the all-random ARAM mode of League of Legends">
+                </section>
 
-            <section id="howling">
-                <div>
-                    <h3>Howling Abyss (ARAM)</h3>
-                    <p>Looking to unwind and play a fun mode with your friends or alone? Howling Abyss is a map featuring one lane with the pure intent of fighting and moving down one lane to destroy the enemy team's 
-                        base. All players are offered a pool of randomly-selected champions to play in each game, acting as a mode dedicated entirely to rapid decision making and chaos. The gamemode Mayhem, a seasonal 
-                        mode providing more chaos with new items and augments to change your playstyle, is also played on Howling Abyss.
-                    </p>
-                </div>
-
-                <img src="" alt="An image of the map Howling Abyss for the all-random ARAM mode of League of Legends">
-            </section>
-
-            <section id="rings">
-                <div>
-                    <h3>Rings of Wrath (Arena)</h3>
-                    <p>For some players, showing their prowess of the champions they love is what they love doing most. Rings of Wrath is home to mode Arena, a gamemode dedicated entirely to winning combat against teams 
-                        of two players. Players pick powerful augments to elevate their champion's capabilities and purchase items to become as strong as possible. Teams are eliminated by depleting their team's health 
-                        points, with the last team standing being the winner. This is the perfect mode for those looking to flex their skills with their favorite champion either alongside a friend or with a stranger.
-                    </p>
-                </div>
-
-                <img src="" alt="An image of the map Rings of Wrath for the Arena combat mode of League of Legends">
-            </section>
-            </div>
-        </section>
-
-        <section id="champions">
-            <h2>Battle a Roster of Over 170 Champions!</h2>
-            <p>In League of Legends, champions from all across Runeterra gather to fight for their causes. Each of the over 170 champion brings their own unique story and gameplay style to the evergrowing roster. 
-                Some act with noble intentions, others may seek glory and some may even just be searching for a good time. 
-            </p>
-
-            <p>Different classes of charcters offer different playstyles within a team dynamic. Tanks, supports and fighters prefer to be in the front of the battle while assassins, mages and marksmen look for their window 
-                to strike against the enemy team. With six different roles available to play, you can be a valued member of your team and help lead the way to vicory on the battlefield.
-            </p>
-
-            <!-- jQuery slick container, will be dynamically updated via JavaScript from Postman -->
-            <div id="championSlick">
-            </div>
-        </section>
-
-        <section id="skins">
-            <h2>Customize Your Play with Skin Fantasies!</h2>
-            <p>Skins are a cosmetic that change the way player's engage with their favorite champions. At the core of every champion's kit and lore is an idea of what the player is doing when 
-                they are playing the champion. With skins, this player fantasy can change what their champion's actions and motives are. Below are examples of the different identities our champions
-                can on when stylizing your play.
-            </p>
-
-            <p>Skins can be earned simply by playing as players earn chests for acceptional play during their matches. The better you play, the more you'll receive chests with free skins! Additionally, 
-                skins are available for purchase in the in-game store for blue and orange essence, as well as for our paid currency Riot Points (RP). Skins are also available for free through various 
-                battle passes offered during promotional periods.
-            </p>
-
-            <!-- jQuery slick container, will be dynamically updated via JavaScript from Postman -->
-            <div id="skinSlick">
-            </div>
-        </section>
-
-        <section id="find">
-            <h2>Search for Allies on Summoner's Rift</h2>
-            <p>Whether you're joining the fight with veterans or looking for the highest leveled player, use our tool to search for players on your server! Your search will default to the region 
-                you've selected upon site entry. You can search other regions' playerbase records or a player's Riot ID by changing the region code below.
-            </p>
-
-            <div>
-                <form  id="searchForm" action="">
-                    <div id="inputs">
-                        <div>
-                            <label for="playerSearch">Summoner Name:</label>
-                            <input type="text" minlength="3" maxlength="16" name="playerSearch" id="playerSearch">
-                        </div>
-
-                        <div>
-                            <label for="taglineSearch">Tagline:</label>
-                            <input type="text" minlength="3" maxlength="5" name="taglineSearch" id="taglineSearch">
-                        </div>
+                <section id="rings">
+                    <div>
+                        <h3>Rings of Wrath (Arena)</h3>
+                        <p>For some players, showing their prowess of the champions they love is what they love doing most. Rings of Wrath is home to mode Arena, a gamemode dedicated entirely to winning combat against teams 
+                            of two players. Players pick powerful augments to elevate their champion's capabilities and purchase items to become as strong as possible. Teams are eliminated by depleting their team's health 
+                            points, with the last team standing being the winner. This is the perfect mode for those looking to flex their skills with their favorite champion either alongside a friend or with a stranger.
+                        </p>
                     </div>
 
-                    <div id="findButtons">
-                            <button id="regionSelectButton">Change Region</button>
-                            <input type="submit" value="Find Player">
+                    <img src="https://wiki.leagueoflegends.com/en-us/images/Arena_Noxus_background.png?c9948" alt="An image of the map Rings of Wrath for the Arena combat mode of League of Legends">
+                </section>
+                </div>
+            </section>
+
+            <section id="champions">
+                <h2>Battle a Roster of Over 170 Champions!</h2>
+                <p>In League of Legends, champions from all across Runeterra gather to fight for their causes. Each of the over 170 champion brings their own unique story and gameplay style to the evergrowing roster. 
+                    Some act with noble intentions, others may seek glory and some may even just be searching for a good time. 
+                </p>
+
+                <p>Different classes of charcters offer different playstyles within a team dynamic. Tanks, supports and fighters prefer to be in the front of the battle while assassins, mages and marksmen look for their window 
+                    to strike against the enemy team. With six different roles available to play, you can be a valued member of your team and help lead the way to vicory on the battlefield.
+                </p>
+
+                <!-- jQuery slick container, will be dynamically updated via JavaScript from Postman -->
+                <div id="championSlick">
+                </div>
+            </section>
+
+            <section id="skins">
+                <h2>Customize Your Play with Skin Fantasies!</h2>
+                <p>Skins are a cosmetic that change the way player's engage with their favorite champions. At the core of every champion's kit and lore is an idea of what the player is doing when 
+                    they are playing the champion. With skins, this player fantasy can change what their champion's actions and motives are. Below are examples of the different identities our champions
+                    can on when stylizing your play.
+                </p>
+
+                <p>Skins can be earned simply by playing as players earn chests for acceptional play during their matches. The better you play, the more you'll receive chests with free skins! Additionally, 
+                    skins are available for purchase in the in-game store for blue and orange essence, as well as for our paid currency Riot Points (RP). Skins are also available for free through various 
+                    battle passes offered during promotional periods.
+                </p>
+
+                <!-- jQuery slick container, will be dynamically updated via JavaScript from Postman -->
+                <div id="skinSlick">
+                </div>
+            </section>
+
+            <section id="find">
+                <h2>Search for Allies on Summoner's Rift</h2>
+                <p>Whether you're joining the fight with veterans or looking for the highest leveled player, use our tool to search for players on your server! Your search will default to the region 
+                    you've selected upon site entry. You can search other regions' playerbase records or a player's Riot ID by changing the region code below.
+                </p>
+
+                <div>
+                    <form  id="searchForm" action="#">
+                        <div id="inputs">
+                            <div>
+                                <label for="playerSearch">Summoner Name:</label>
+                                <input type="text" minlength="3" maxlength="16" name="playerSearch" id="playerSearch">
+                            </div>
+
+                            <div>
+                                <label for="taglineSearch">Tagline:</label>
+                                <input type="text" minlength="3" maxlength="5" name="taglineSearch" id="taglineSearch">
+                            </div>
                         </div>
 
-                    <!-- Span that will display errors to the form when an issue occurs -->
-                    <span class="error hidden"></span>
-                </form>
+                        <div id="findButtons">
+                                <button id="regionSelectButton">Change Region</button>
+                                <input type="submit" value="Search">
+                            </div>
 
-                <!-- Player data will be dynamically added upon submitting a request to the Riot API -->
-                <div id="player-content">
+                        <!-- Span that will display errors to the form when an issue occurs -->
+                        <span class="error hidden"></span>
+                    </form>
+
+                    <!-- Player data will be dynamically added upon submitting a request to the Riot API -->
+                    <div id="player-content">
+                    </div>
+                </div>
+            </section>
+
+            <!-- A pop-up that triggers upon page open if the client does not have a localStorage value holding their region preference -->
+            <div id="popup-wrapper" class="hidden">
+                <div id="region-popup">
+                    <h2>Please select a region:</h2>
+                    <form id="popupForm" action="#">
+                        <select name="region" id="region">
+                            <option value="na1">North America</option>
+                            <option value="la1">Latin America North</option>
+                            <option value="la2">Latin America South</option>
+                            <option value="br1">Brazil</option>
+                            <option value="ru">Russia</option>
+                            <option value="euw1">Europe West</option>
+                            <option value="eun1">Europe Nordic & East</option>
+                            <option value="kr">Korea</option>
+                            <option value="jp1">Japan</option>
+                        </select>
+                        <input type="submit" value="Confirm">
+                    </form>
                 </div>
             </div>
-        </section>
+        </main>
 
-        <!-- A pop-up that triggers upon page open if the client does not have a localStorage value holding their region preference -->
-        <div id="region-popup" class="hidden">
-            <h2>Please select a region:</h2>
-            <form action="">
-                <select name="region" id="region">
-                    <option value="na1">North America</option>
-                    <option value="la1">Latin America North</option>
-                    <option value="la2">Latin America South</option>
-                    <option value="br1">Brazil</option>
-                    <option value="ru">Russia</option>
-                    <option value="euw1">Europe West</option>
-                    <option value="eun1">Europe Nordic & East</option>
-                    <option value="kr">Korea</option>
-                    <option value="jp1">Japan</option>
-                </select>
-                <input type="submit" value="Confirm">
-            </form>
-        </div>
-    </main>
-
-    <footer>
-        <p>Copyright &copy; Riot Games 2026</p>
-        <p>This website is for educational purposes.</p>
-    </footer>
-</body>
+        <footer>
+            <img src="https://wiki.leagueoflegends.com/en-us/images/Riot_Games_logo_circle_black_white.png?872e7" alt="Logo of the Riot Games company featuring a fist within a circle">
+            <p>Copyright &copy; Riot Games 2026</p>
+            <p>This website is for educational purposes.</p>
+        </footer>
+    </body>
+</html>

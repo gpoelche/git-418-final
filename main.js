@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async function(){
 
     //Check if the user has selected a region before, display the region select pop-up if not.
     if(!localStorage.getItem("region")){
-        document.getElementById("region-popup").classList.remove("hidden");
+        document.getElementById("popup-wrapper").classList.remove("hidden");
     }
 
     // Declaring constants to be used in URLs for Postman requests
@@ -58,7 +58,7 @@ function setRegion(e){
     e.preventDefault();
     let region = document.querySelector("#region").value;
     localStorage.setItem("region", region);
-    document.querySelector("#region-popup").classList.add("hidden");
+    document.querySelector("#popup-wrapper").classList.add("hidden");
 }
 
 //Function for making call to Riot Games API
@@ -83,7 +83,7 @@ async function getPlayer(e){
         "jp1": "asia"
     };
 
-    const apiKey = 'RGAPI-60dfceaa-a505-461b-a642-924bb1f32637';
+    const apiKey = 'RGAPI-9c5eb9d6-3199-4471-ad49-5a6f6b440d2c';
     let playerContent = document.querySelector("#player-content");
     playerContent.innerHTML = "";
     
@@ -148,7 +148,7 @@ async function getPlayer(e){
         //SVGs are loaded from there into the player section based on the string value of the tier returned in API call
         if(rankInfo.length == 0){
             temp += `<img src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/unranked.svg">`;
-            temp += `<h3>Ranked Stats<p>Unranked</p>`;
+            temp += `<h3>Ranked Stats</h3><p>Unranked</p>`;
         }
 
         else{
@@ -178,7 +178,7 @@ async function getPlayer(e){
 //Setting event listeners
 document.getElementById("regionSelectButton").addEventListener("click", function(e){
     e.preventDefault();
-    document.getElementById("region-popup").classList.remove("hidden");
+    document.getElementById("popup-wrapper").classList.remove("hidden");
 });
 
 document.querySelector("#region-popup form").addEventListener("submit", setRegion);
