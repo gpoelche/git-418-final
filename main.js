@@ -19,14 +19,9 @@ document.addEventListener("DOMContentLoaded", async function(){
     //Adding champions from the fetch request into the DOM as cards that will cycle via Cycle2
     for(let champ of data.champions){
         let temp = `<div class='champCard'>`;
-        temp += `<img src='${champ.splash_link}' alt='An image of the champion ${champ.name}'><h3>${champ.name}</h3><p>${champ.subtitle}</p><p>${champ.role}</p></div>`;
-        document.querySelector("#champions #championCycle").innerHTML += temp;
+        temp += `<img src='${champ.splash_link}' alt='An image of the champion ${champ.name}'><div><h3>${champ.name}</h3><p>${champ.subtitle}</p><p>${champ.role}</p></div></div>`;
+        document.querySelector("#championSlick").innerHTML += temp;
     }
-
-    $("#championCycle").cycle({
-        speed: 1000,
-        slides: "> .champCard"
-    });
 
     //Adding skins from the fetch request into the DOM as cards that will cycle via slick
     for(let skin of data.skins){
@@ -35,7 +30,19 @@ document.addEventListener("DOMContentLoaded", async function(){
         document.querySelector("#skins div").innerHTML += temp;
     }
 
-    $(document).ready(function(){
+    //Initializing all jQuery plugins that are on this page now that all data has been loaded for the dynamically added containers
+    //Loads each of the plugins in the order that they appear within the website's content flow.
+    $(function(){
+        $("#tabs").tabs();
+
+        $("#championSlick").slick({
+            slidesToShow: 1,
+            autoplay: true,
+            arrows: true,
+            prevArrow: '<button class="slick-prev">&larr;</button>',
+            nextArrow: '<button class="slick-next">&rarr;</button>'
+        });
+
         $("#skinSlick").slick({
             slidesToShow: 1,
             autoplay: true,
@@ -141,18 +148,18 @@ async function getPlayer(e){
         //SVGs are loaded from there into the player section based on the string value of the tier returned in API call
         if(rankInfo.length == 0){
             temp += `<img src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/unranked.svg">`;
-            temp += `<p>Unranked</p>`;
+            temp += `<h3>Ranked Stats<p>Unranked</p>`;
         }
 
         else{
             if(rankInfo[0].tier == "MASTER" || rankInfo[0].tier == "GRANDMASTER" || rankInfo[0].tier == "CHALLENGER"){
                 temp += `<img src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/${String(rankInfo[0].tier).toLowerCase()}.svg">`;
-                temp += `<p>${rankInfo[0].tier} ${rankInfo[0].leaguePoints}LP</p>`;
+                temp += `<h3>Ranked Stats</h3><p>${rankInfo[0].tier} ${rankInfo[0].leaguePoints}LP</p>`;
             }
 
             else{
                 temp += `<img src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/${String(rankInfo[0].tier).toLowerCase()}.svg">`;
-                temp += `<p>${rankInfo[0].tier} ${rankInfo[0].rank} ${rankInfo[0].leaguePoints}LP</p>`;
+                temp += `<h3>Ranked Stats</h3><p>${rankInfo[0].tier} ${rankInfo[0].rank} ${rankInfo[0].leaguePoints}LP</p>`;
             }
 
             temp += `<p>${rankInfo[0].wins}W ${rankInfo[0].losses}L</p></div>`;

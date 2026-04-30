@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@200..800&family=Sekuya&display=swap');
 
 :root{
     --heading-2-size: 2.25rem;
     --heading-font: "Manrope", sans-serif;
+    /* --heading-font: "Sekuya", system-ui; */
     --heading-weight: 800;
 
     --hero-heading: 3rem;
@@ -10,6 +12,7 @@
     --nav-size: 1.5rem;
 
     --body-font: "Instrument Serif", serif;
+    /* --body-font: "Manrope", sans-serif; */
     --body-size: 1.5rem;
     --body-weight: 400;
     --body-padding: 40px;
@@ -101,14 +104,14 @@ main{
 }
 
 main section{
-    margin-bottom: 25px;
+    padding-top: 50px;
 }
 
 p, h2, h3, form{
     padding-left: 30px;
 }
 
-p{
+p:not(.champCard div p, .skinCard div p, #player-content p){
     margin-bottom: 30px;
 }
 
@@ -132,6 +135,7 @@ header a{
 header{
     background-color: var(--black);
     padding: 20px 0px;
+    font-family: var(--heading-font);
 }
 
 nav ul{
@@ -180,7 +184,23 @@ nav a:hover{
     font-weight: bold;    
 }
 
-/* GALLERY CARD STYLES */
+/* MODES STYLES */
+
+#modes{
+    background-color: var(--black);
+    color: var(--white);
+}
+
+#modes section{
+    display: flex;
+    flex-direction: row;
+}
+
+#modes section img{
+    width: 300px;
+}
+
+/* CHAMPION SECTION STYLES */
 .champCard{
     max-width: 500px;
 }
@@ -189,24 +209,19 @@ nav a:hover{
     width: 100%;
 }
 
-/* SKIN SECTION STYLES */
-#skins{
-    padding-top: 50px;
-}
-
 #skins:not(#skinSlick){
     background-color: var(--black);
     color: var(--white);
 }
 
-#skinSlick{
+#skinSlick, #championSlick{
     margin-top: 50px;
     display: flex;
     flex-direction: row;
     position: relative;
 }
 
-#skinSlick button{
+#skinSlick button, #championSlick button{
     padding: 10px 15px;
     border-radius: 25px;
     z-index: 3;
@@ -215,28 +230,28 @@ nav a:hover{
     border: 1px solid var(--white);
 }
 
-#skinSlick .slick-prev{
+.slick-prev{
     position: absolute;
     top: 50%;
     left: 1%;
 }
 
-#skinSlick .slick-next{
+.slick-next{
     position: absolute;
     right: 1%;
     top: 50%;
 }
 
-.skinCard{
+.skinCard, .champCard{
     max-width: 100%;
     position: relative;
 }
 
-.skinCard img{
+.skinCard img, .champCard img{
     width: 100%;
 }
 
-.skinCard div{
+.skinCard div, .champCard div{
     position: absolute;
     bottom: 0;
     background-color: var(--card-bg-color);
@@ -247,6 +262,15 @@ nav a:hover{
 }
 
 /* PLAYER SEARCH STYLES */
+#find{
+    padding-bottom: 50px;
+}
+
+#find > div{
+    display: flex;
+    gap: 200px;
+}
+
 #searchForm{
     margin-top: 20px;
 }
@@ -283,7 +307,8 @@ input[type^=submit], #find button{
     display: flex;
     flex-direction: row;
     gap: 50px;
-    align-items: center;
+    align-items: baseline;
+    justify-content: space-evenly;
 }
 
 #player-content img{
@@ -294,6 +319,10 @@ input[type^=submit], #find button{
     border-radius: 50%;
     margin-left: 30px;
     border: 8px solid var(--black);
+}
+
+#rankedInfo img{
+    padding-bottom: 30px;
 }
 
 /* POP-UP STYLES */

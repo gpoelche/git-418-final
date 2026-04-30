@@ -6,16 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta charset="utf-8">
+
     <link rel="stylesheet" href="styles.css">
     <!-- Stylesheet needed for slick to work properly -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Stylesheet needeed for jQuery UI to work properly -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.css">
+
     <title>About - League of Legends</title>
 
     <!-- Linking jQuery to the file to utilize in main.js and for plugins -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- Link to Cycle2 provided by an example within zyBooks lesson -->
-    <script src="https://malsup.github.io/jquery.cycle2.js"></script>
+    <!-- Link to jQuery UI from the cdn link in zyBooks-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
     <!-- Link to slick, a carousel plugin I plan to use for the skins section of this webpage -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -46,18 +50,71 @@
             <a href="#">Play Now</a>
         </section>
 
-        <section id="champions">
-            <h2>Battle a Roster of Over 170 Champions!</h2>
-            <p>Since our release in 2010, we've continued to release additional champions for our players to master. Each champion fulfills a unique fantasy within the world of Runeterra, 
-                with many players finding the one champion that simply clicks with them. Below are examples of each role you can play in a game of League of Legends.
+        <section id="modes">
+            <h2>Battle Opponents on Various Maps</h2>
+            <p>Engage in combat across several maps and rotating game modes every time you login to League of Legends. Classic maps and game modes are a permanent part of the player experience in Runeterra, often receiving 
+                seasonal overhauls and updates to further enhance the consistent gameplay our players love. Other maps and game modes are part of a rotating selection that we change throughout various points of the year to 
+                keep players engaged. New maps and gamemodes are also introduced as limited-time experiences alongside major events we put on for our players! Below are a few of the maps and gamemodes you can expect to see 
+                on day one.
             </p>
 
-            <!-- jQuery Cycle2 container, will be dynamically updated via JavaScript from Postman -->
-            <div id="championCycle" class="cycle-slideshow"
-            data-cycle-fx="scrollHorz"
-            data-cycle-speed="3000"
-            data-cycle-slides=".champCard">
-            <!-- <div id="championCycle"> -->
+            <div id="tabs">
+                <ul>
+                    <li><a href="#summoners">Summoner's Rift</a></li>
+                    <li><a href="#howling">Howling Abyss</a></li>
+                    <li><a href="#rings">Rings of Wrath</a></li>
+                </ul>
+
+                <section id="summoners">
+                    <div>
+                        <h3>Summoner's Rift (Draft Pick)</h3>
+                        <p>The classic League of Legends experience. Battle on a map with three major lanes, conecting its two sides by a river splitting the jungle. Players queue in teams of five against another team in a 
+                            fight to destroy the enemy team's base. Various jungle monsters and objectives lie across the map offering benefits to those who smite them. All ranked modes as well as Clash, an elimination-style 
+                            tournament mode, are played on this map.
+                        </p>
+                    </div>
+
+                <img src="" alt="An image of the map Summoner's Rift for the classic mode of League of Legends">
+            </section>
+
+            <section id="howling">
+                <div>
+                    <h3>Howling Abyss (ARAM)</h3>
+                    <p>Looking to unwind and play a fun mode with your friends or alone? Howling Abyss is a map featuring one lane with the pure intent of fighting and moving down one lane to destroy the enemy team's 
+                        base. All players are offered a pool of randomly-selected champions to play in each game, acting as a mode dedicated entirely to rapid decision making and chaos. The gamemode Mayhem, a seasonal 
+                        mode providing more chaos with new items and augments to change your playstyle, is also played on Howling Abyss.
+                    </p>
+                </div>
+
+                <img src="" alt="An image of the map Howling Abyss for the all-random ARAM mode of League of Legends">
+            </section>
+
+            <section id="rings">
+                <div>
+                    <h3>Rings of Wrath (Arena)</h3>
+                    <p>For some players, showing their prowess of the champions they love is what they love doing most. Rings of Wrath is home to mode Arena, a gamemode dedicated entirely to winning combat against teams 
+                        of two players. Players pick powerful augments to elevate their champion's capabilities and purchase items to become as strong as possible. Teams are eliminated by depleting their team's health 
+                        points, with the last team standing being the winner. This is the perfect mode for those looking to flex their skills with their favorite champion either alongside a friend or with a stranger.
+                    </p>
+                </div>
+
+                <img src="" alt="An image of the map Rings of Wrath for the Arena combat mode of League of Legends">
+            </section>
+            </div>
+        </section>
+
+        <section id="champions">
+            <h2>Battle a Roster of Over 170 Champions!</h2>
+            <p>In League of Legends, champions from all across Runeterra gather to fight for their causes. Each of the over 170 champion brings their own unique story and gameplay style to the evergrowing roster. 
+                Some act with noble intentions, others may seek glory and some may even just be searching for a good time. 
+            </p>
+
+            <p>Different classes of charcters offer different playstyles within a team dynamic. Tanks, supports and fighters prefer to be in the front of the battle while assassins, mages and marksmen look for their window 
+                to strike against the enemy team. With six different roles available to play, you can be a valued member of your team and help lead the way to vicory on the battlefield.
+            </p>
+
+            <!-- jQuery slick container, will be dynamically updated via JavaScript from Postman -->
+            <div id="championSlick">
             </div>
         </section>
 
@@ -84,30 +141,32 @@
                 you've selected upon site entry. You can search other regions' playerbase records or a player's Riot ID by changing the region code below.
             </p>
 
-            <form  id="searchForm" action="">
-                <div id="inputs">
-                    <div>
-                        <label for="playerSearch">Summoner Name:</label>
-                        <input type="text" name="playerSearch" id="playerSearch">
+            <div>
+                <form  id="searchForm" action="">
+                    <div id="inputs">
+                        <div>
+                            <label for="playerSearch">Summoner Name:</label>
+                            <input type="text" minlength="3" maxlength="16" name="playerSearch" id="playerSearch">
+                        </div>
+
+                        <div>
+                            <label for="taglineSearch">Tagline:</label>
+                            <input type="text" minlength="3" maxlength="5" name="taglineSearch" id="taglineSearch">
+                        </div>
                     </div>
 
-                    <div>
-                        <label for="taglineSearch">Tagline:</label>
-                        <input type="text" name="taglineSearch" id="taglineSearch">
-                    </div>
+                    <div id="findButtons">
+                            <button id="regionSelectButton">Change Region</button>
+                            <input type="submit" value="Find Player">
+                        </div>
+
+                    <!-- Span that will display errors to the form when an issue occurs -->
+                    <span class="error hidden"></span>
+                </form>
+
+                <!-- Player data will be dynamically added upon submitting a request to the Riot API -->
+                <div id="player-content">
                 </div>
-
-                <div id="findButtons">
-                        <button id="regionSelectButton">Change Region</button>
-                        <input type="submit" value="Find Player">
-                    </div>
-
-                <!-- Span that will display errors to the form when an issue occurs -->
-                <span class="error hidden"></span>
-            </form>
-
-            <!-- Player data will be dynamically added upon submitting a request to the Riot API -->
-            <div id="player-content">
             </div>
         </section>
 
