@@ -83,7 +83,7 @@ async function getPlayer(e){
         "jp1": "asia"
     };
 
-    const apiKey = 'RGAPI-9c5eb9d6-3199-4471-ad49-5a6f6b440d2c';
+    const apiKey = 'RGAPI-76851bcc-3899-4f22-bc2c-c3fe41d5e6de';
     let playerContent = document.querySelector("#player-content");
     playerContent.innerHTML = "";
     
