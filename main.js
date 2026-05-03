@@ -1,4 +1,6 @@
 // George Poelcher III - 4/22/26 - GIT 418 - Prof. Bailey
+
+//Enforcing strict mode globally, a requirement for this assignment.
 "use strict";
 
 // The script waits for the DOM to load before submitting fetch requests to dynamically load certain content.
@@ -33,8 +35,10 @@ document.addEventListener("DOMContentLoaded", async function(){
     //Initializing all jQuery plugins that are on this page now that all data has been loaded for the dynamically added containers
     //Loads each of the plugins in the order that they appear within the website's content flow.
     $(function(){
+        //Initializing the tabs container for jQuery UI
         $("#tabs").tabs();
 
+        //Initializing the slick carousels with passed arguments that help construct the carousel with certain parameters
         $("#championSlick").slick({
             slidesToShow: 1,
             autoplay: true,
@@ -53,7 +57,7 @@ document.addEventListener("DOMContentLoaded", async function(){
     });
 });
 
-// Form functions
+//Funtion for setting the viewer's region, used in displaying the pop-up on page load if there is no region value in local storage.
 function setRegion(e){
     e.preventDefault();
     let region = document.querySelector("#region").value;
@@ -83,7 +87,8 @@ async function getPlayer(e){
         "jp1": "asia"
     };
 
-    const apiKey = 'RGAPI-a10a496a-80b9-4103-8715-2cf5e43a111b';
+    //The Riot Games API key that is used to access content, updated every 24hrs since this is a student project and not a registered product.
+    const apiKey = 'RGAPI-b277498a-3912-4c56-b47d-6e15019113e2';
     let playerContent = document.querySelector("#player-content");
     playerContent.innerHTML = "";
     
@@ -151,6 +156,8 @@ async function getPlayer(e){
             temp += `<h3>Ranked Stats</h3><p>Unranked</p>`;
         }
 
+        //Formatting the rank string depending on the player rank. Master, Grandmaster and Challenger do not have have a rank stat, only the tier. 
+        //Lower ranks have divisions from IV - I and unranked playeers need to be accounted for when formatting the string as well as they do not have data to present.
         else{
             if(rankInfo[0].tier == "MASTER" || rankInfo[0].tier == "GRANDMASTER" || rankInfo[0].tier == "CHALLENGER"){
                 temp += `<img src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/${String(rankInfo[0].tier).toLowerCase()}.svg">`;
@@ -168,6 +175,7 @@ async function getPlayer(e){
         playerContent.innerHTML = temp;
     }
 
+    //Catches errors from both bad requests as well as errors from the API, displays to an error span instead of display player information
     catch(err){
         document.querySelector("#searchForm span").classList.remove("hidden");
         document.querySelector("#searchForm span").innerHTML = err;
