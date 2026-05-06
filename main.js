@@ -88,7 +88,7 @@ async function getPlayer(e){
     };
 
     //The Riot Games API key that is used to access content, updated every 24hrs since this is a student project and not a registered product.
-    const apiKey = 'RGAPI-4d01b9f5-f2a5-40a4-858b-c95d09c941be';
+    const apiKey = 'RGAPI-c81604df-c800-485b-aff7-d4a90fc09d87';
     let playerContent = document.querySelector("#player-content");
     playerContent.innerHTML = "";
     
