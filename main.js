@@ -88,7 +88,7 @@ async function getPlayer(e){
     };
 
     //The Riot Games API key that is used to access content, updated every 24hrs since this is a student project and not a registered product.
-    const apiKey = 'RGAPI-c81604df-c800-485b-aff7-d4a90fc09d87';
+    const oldKey = '';
     let playerContent = document.querySelector("#player-content");
     playerContent.innerHTML = "";
     
@@ -107,7 +107,7 @@ async function getPlayer(e){
     }
 
     //URL that is sent to the Riot Games API with the Account-V1 function
-    let accountUrl = `https://${platform}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${searchName}/${tagline}?api_key=${apiKey}`;    
+    let accountUrl = `https://${platform}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${searchName}/${tagline}?api_key=${oldKey}`;    
 
     //Try block that catches bad responses from the user request. Adds the error message to an error span.
     try{
@@ -129,17 +129,17 @@ async function getPlayer(e){
         let acctInfo = await response.json();
         let puuid = acctInfo.puuid;
         //URL that is sent to the Riot Games API with the Summoner-V4 function
-        let puuidUrl = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${apiKey}`;
+        let puuidUrl = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${oldKey}`;
         let userRes = await fetch(puuidUrl);
         let userInfo = await userRes.json();
 
         //Getting player ranked information, for solo queue only
-        let rankUrl = `https://${region}.api.riotgames.com/lol/league/v4/entries/by-puuid/${puuid}?api_key=${apiKey}`;
+        let rankUrl = `https://${region}.api.riotgames.com/lol/league/v4/entries/by-puuid/${puuid}?api_key=${oldKey}`;
         let rankRes = await fetch(rankUrl);
         let rankInfo = await rankRes.json();
 
         //Getting champion mastery info for the player with the puuid value on Champion Mastery-V4
-        let masteryUrl = `https://${region}.api.riotgames.com/lol/champion-mastery/v4/scores/by-puuid/${puuid}?api_key=${apiKey}`;
+        let masteryUrl = `https://${region}.api.riotgames.com/lol/champion-mastery/v4/scores/by-puuid/${puuid}?api_key=${oldKey}`;
         let masteryRes = await fetch(masteryUrl);
         let masteryInfo = await masteryRes.json();
         
